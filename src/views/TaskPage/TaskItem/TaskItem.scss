@@ -1,0 +1,27 @@
+.task-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin: 1rem 0;
+  &-title {
+  }
+
+  &-tool {
+  }
+
+  &-icon {
+    cursor: pointer;
+    color: white;
+    padding: 1.2rem;
+    border-radius: 4px;
+    &:first-child {
+      margin-right: 1rem;
+    }
+    &-edit {
+      background-color: #17a2b8;
+    }
+    &-delete {
+      background-color: #dc3545;
+    }
+  }
+}
