@@ -11,7 +11,7 @@ class AddTask extends Component {
   }
 
   handleClick = () => {
-    console.log(this.state.task);
+    console.log(this);
     this.props.onAddTask({
       id: Math.floor(Math.random() * 10000),
       title: this.state.task,
