@@ -3,6 +3,8 @@ import AddTask from './AddTask';
 import TaskList from './TaskList';
 import './TaskPage.scss';
 
+import { toast } from 'react-toastify';
+
 class TaskPage extends Component {
   state = {
     tasks: [
@@ -28,6 +30,7 @@ class TaskPage extends Component {
       (task) => task.id !== taskIdRemove
     );
     this.setState({ tasks: newTasks });
+    toast.success('Xóa thành công');
   };
 
   render() {

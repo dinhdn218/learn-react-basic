@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import './AddTask.scss';
 
+import { toast } from 'react-toastify';
+
 class AddTask extends Component {
   state = {
     task: '',
@@ -11,6 +13,10 @@ class AddTask extends Component {
   };
 
   handleClick = () => {
+    if (!this.state.task) {
+      toast.error('Bạn chưa nhập công việc');
+      return;
+    }
     this.props.onAddTask({
       id: Math.floor(Math.random() * 10000),
       title: this.state.task,
@@ -19,6 +25,7 @@ class AddTask extends Component {
     this.setState({
       task: '',
     });
+    toast.success('Thêm công việc thành công');
   };
 
   render() {
