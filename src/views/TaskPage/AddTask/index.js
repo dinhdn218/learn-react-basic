@@ -6,15 +6,18 @@ class AddTask extends Component {
     task: '',
   };
 
-  handleChangeTask(e) {
+  handleChangeTask = (e) => {
     this.setState({ task: e.target.value });
-  }
+  };
 
   handleClick = () => {
-    console.log(this.state.task);
     this.props.onAddTask({
       id: Math.floor(Math.random() * 10000),
       title: this.state.task,
+    });
+    // Remove text input
+    this.setState({
+      task: '',
     });
   };
 

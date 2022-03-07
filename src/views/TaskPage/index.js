@@ -12,19 +12,32 @@ class TaskPage extends Component {
     ],
   };
 
+  // Hàm thêm công việc
   handleAddTask = (task) => {
-    console.log(this);
-    console.log(task);
     this.setState({
       tasks: [...this.state.tasks, task],
     });
+  };
+
+  // Hàm sửa công việc
+
+  // Hàm xóa công việc
+  handleRemoveTask = (taskIdRemove) => {
+    console.log(taskIdRemove);
+    const newTasks = this.state.tasks.filter(
+      (task) => task.id !== taskIdRemove
+    );
+    this.setState({ tasks: newTasks });
   };
 
   render() {
     return (
       <div className="task-page">
         <AddTask onAddTask={this.handleAddTask} />
-        <TaskList tasks={this.state.tasks} />
+        <TaskList
+          onRemoveTask={this.handleRemoveTask}
+          tasks={this.state.tasks}
+        />
       </div>
     );
   }

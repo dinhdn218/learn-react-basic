@@ -6,7 +6,14 @@ class TaskList extends Component {
     return (
       <div className="task-list">
         {this.props.tasks.map((task) => {
-          return <TaskItem key={task.id} title={task.title} />;
+          return (
+            <TaskItem
+              onRemoveTask={this.props.onRemoveTask}
+              key={task.id}
+              title={task.title}
+              id={task.id}
+            />
+          );
         })}
       </div>
     );
