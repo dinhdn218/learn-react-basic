@@ -19,9 +19,20 @@ class TaskPage extends Component {
     this.setState({
       tasks: [...this.state.tasks, task],
     });
+    toast.success('Thêm công việc thành công');
   };
 
   // Hàm sửa công việc
+  handleEditTask = (taskIdEdit, titleEdit) => {
+    const newListTaskAfterEdit = [...this.state.tasks];
+    newListTaskAfterEdit.forEach((task) => {
+      if (task.id === taskIdEdit) {
+        task.title = titleEdit;
+      }
+    });
+    this.setState({ tasks: newListTaskAfterEdit });
+    toast.success('Sửa công việc thành công');
+  };
 
   // Hàm xóa công việc
   handleRemoveTask = (taskIdRemove) => {
@@ -38,6 +49,7 @@ class TaskPage extends Component {
       <div className="task-page">
         <AddTask onAddTask={this.handleAddTask} />
         <TaskList
+          onEditTask={this.handleEditTask}
           onRemoveTask={this.handleRemoveTask}
           tasks={this.state.tasks}
         />

@@ -25,7 +25,6 @@ class AddTask extends Component {
     this.setState({
       task: '',
     });
-    toast.success('Thêm công việc thành công');
   };
 
   render() {

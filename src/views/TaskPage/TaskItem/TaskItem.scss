@@ -7,6 +7,15 @@
   }
 
   &-tool {
+    display: flex;
+    margin-left: 2rem;
+  }
+
+  &-input {
+    padding: 1.5rem 1rem;
+    width: 100%;
+    border: 1px solid #ccc;
+    border-radius: 1rem;
   }
 
   &-icon {
@@ -22,6 +31,9 @@
     }
     &-delete {
       background-color: #dc3545;
+    }
+    &-save {
+      background-color: #28a745;
     }
   }
 }

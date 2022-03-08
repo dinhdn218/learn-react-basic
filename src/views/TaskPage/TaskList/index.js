@@ -9,6 +9,7 @@ class TaskList extends Component {
           return (
             <TaskItem
               onRemoveTask={this.props.onRemoveTask}
+              onEditTask={this.props.onEditTask}
               key={task.id}
               title={task.title}
               id={task.id}
