@@ -1,19 +1,23 @@
 import React, { Component } from 'react';
+import Icon from '../../../components/Icon';
 import './TaskItem.scss';
 
 class TaskItem extends Component {
-  state = {
-    editTask: '',
-    isEdit: false,
-  };
+  constructor(props) {
+    super(props);
+    this.state = {
+      editTask: '',
+      isEdit: false,
+    };
+  }
 
+  // Hàm thực hiện chỉnh sửa
   performEditTask = () => {
     this.setState({ isEdit: !this.state.isEdit });
     this.setState({ editTask: this.props.title });
-    console.log(this.props.id);
   };
 
-  saveEditTask = () => {
+  confirmSaveEditTask = () => {
     this.setState({ isEdit: !this.state.isEdit });
     this.props.onEditTask(this.props.id, this.state.editTask);
   };
@@ -42,21 +46,23 @@ class TaskItem extends Component {
           ></input>
         )}
         <div className="task-item-tool">
-          {!isEdit ? (
+          {/* {!isEdit ? (
             <i
               onClick={this.performEditTask}
               className="fa-solid fa-pen-to-square task-item-icon task-item-icon-edit"
             ></i>
           ) : (
             <i
-              onClick={this.saveEditTask}
+              onClick={this.confirmSaveEditTask}
               className="fa-solid fa-check task-item-icon task-item-icon-save"
             ></i>
           )}
           <i
             onClick={() => this.handleRemoveTask(id)}
             className="fa-solid fa-trash-can task-item-icon task-item-icon-delete"
-          ></i>
+          ></i> */}
+          {!isEdit ? <Icon edit /> : <Icon save />}
+          <Icon remove />
         </div>
       </div>
     );

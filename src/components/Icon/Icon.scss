@@ -1,0 +1,25 @@
+.icon-feature {
+  cursor: pointer;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 4px;
+  width: 3.5rem;
+  height: 3.5rem;
+  &:not(:last-child) {
+    margin-right: 1rem;
+  }
+  &-edit {
+    background-color: #17a2b8;
+  }
+  &-remove {
+    background-color: #dc3545;
+  }
+  &-save {
+    background-color: #28a745;
+  }
+  &-info {
+    background-color: #ffc107;
+  }
+}

@@ -6,13 +6,16 @@ import './TaskPage.scss';
 import { toast } from 'react-toastify';
 
 class TaskPage extends Component {
-  state = {
-    tasks: [
-      { id: 1, title: 'Giặt quần áo' },
-      { id: 2, title: 'Rửa bát' },
-      { id: 3, title: 'Quét nhà' },
-    ],
-  };
+  constructor() {
+    super();
+    this.state = {
+      tasks: [
+        { id: 1, title: 'Giặt quần áo' },
+        { id: 2, title: 'Rửa bát' },
+        { id: 3, title: 'Quét nhà' },
+      ],
+    };
+  }
 
   // Hàm thêm công việc
   handleAddTask = (task) => {
@@ -36,7 +39,6 @@ class TaskPage extends Component {
 
   // Hàm xóa công việc
   handleRemoveTask = (taskIdRemove) => {
-    console.log(taskIdRemove);
     const newTasks = this.state.tasks.filter(
       (task) => task.id !== taskIdRemove
     );

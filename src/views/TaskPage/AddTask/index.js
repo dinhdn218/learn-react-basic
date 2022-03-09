@@ -4,9 +4,12 @@ import './AddTask.scss';
 import { toast } from 'react-toastify';
 
 class AddTask extends Component {
-  state = {
-    task: '',
-  };
+  constructor(props) {
+    super(props);
+    this.state = {
+      task: '',
+    };
+  }
 
   handleChangeTask = (e) => {
     this.setState({ task: e.target.value });
