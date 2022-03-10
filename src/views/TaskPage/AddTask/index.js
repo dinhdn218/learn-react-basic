@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
-import './AddTask.scss';
-
 import { toast } from 'react-toastify';
+import './AddTask.scss';
 
 class AddTask extends Component {
   constructor(props) {

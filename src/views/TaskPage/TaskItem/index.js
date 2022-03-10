@@ -22,8 +22,8 @@ class TaskItem extends Component {
     this.props.onEditTask(this.props.id, this.state.editTask);
   };
 
-  handleRemoveTask = (id) => {
-    this.props.onRemoveTask(id);
+  handleRemoveTask = () => {
+    this.props.onRemoveTask(this.props.id);
   };
 
   handleChangeEditTask = (e) => {
@@ -31,7 +31,7 @@ class TaskItem extends Component {
   };
 
   render() {
-    const { id, title } = this.props;
+    const { title } = this.props;
     const { editTask, isEdit } = this.state;
 
     return (
@@ -46,23 +46,12 @@ class TaskItem extends Component {
           ></input>
         )}
         <div className="task-item-tool">
-          {/* {!isEdit ? (
-            <i
-              onClick={this.performEditTask}
-              className="fa-solid fa-pen-to-square task-item-icon task-item-icon-edit"
-            ></i>
+          {!isEdit ? (
+            <Icon edit onPerformEditTask={this.performEditTask} />
           ) : (
-            <i
-              onClick={this.confirmSaveEditTask}
-              className="fa-solid fa-check task-item-icon task-item-icon-save"
-            ></i>
+            <Icon save onConfirmSaveEditTask={this.confirmSaveEditTask} />
           )}
-          <i
-            onClick={() => this.handleRemoveTask(id)}
-            className="fa-solid fa-trash-can task-item-icon task-item-icon-delete"
-          ></i> */}
-          {!isEdit ? <Icon edit /> : <Icon save />}
-          <Icon remove />
+          <Icon remove onRemoveTask={this.handleRemoveTask} />
         </div>
       </div>
     );
