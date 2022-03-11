@@ -5,6 +5,7 @@ import './App.scss';
 import HomePage from './views/HomePage';
 import Layout from './views/Layout';
 import TaskPage from './views/TaskPage';
+import UnknownPage from './views/UnknownPage';
 import UserDetailPage from './views/UserDetailPage';
 import UserPage from './views/UserPage';
 
@@ -17,6 +18,7 @@ class App extends Component {
           <Route path="task" element={<TaskPage />} />
           <Route path="user" element={<UserPage />} />
           <Route path="user/:userId" element={<UserDetailPage />} />
+          <Route path="*" element={<UnknownPage />} />
         </Route>
       </Routes>
     );
