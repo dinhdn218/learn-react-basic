@@ -1,33 +1,34 @@
 import React, { Component } from 'react';
+import './Nav.scss';
 import NavItem from './NavItem';
 import { navList } from './NavList';
-import './Nav.scss';
 
 class Nav extends Component {
-  // Active Nav when refresh page
-  componentDidMount = () => {
-    const currentPath = window.location.pathname;
-    // console.log(window.location.pathname);
-  };
+  constructor() {
+    super();
+    this.state = {
+      // Get pathname current when refresh page
+      pathCurrent: window.location.pathname,
+    };
+  }
 
   handleClick = (e) => {
-    const navItems = document.querySelectorAll('.nav-item');
-    navItems.forEach((navItem) => navItem.classList.remove('active'));
-    e.target.classList.add('active');
+    this.setState({
+      pathCurrent: e.target.pathname,
+    });
   };
 
   render() {
+    const { pathCurrent } = this.state;
     return (
       <div className="nav">
         {navList.map((navItem, index) => (
           <NavItem
-            path={window.location.pathname}
-            initActive={0}
-            index={index}
-            onClick={this.handleClick}
+            pathCurrent={pathCurrent}
             key={index}
-            text={navItem.label}
-            to={navItem.path}
+            onClick={this.handleClick}
+            label={navItem.label}
+            path={navItem.path}
           />
         ))}
       </div>

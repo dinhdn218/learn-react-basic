@@ -22,7 +22,7 @@ class TaskPage extends Component {
     this.setState({
       tasks: [...this.state.tasks, task],
     });
-    toast.success('Thêm công việc thành công');
+    toast.success('Thêm thành công');
   };
 
   // Hàm sửa công việc
@@ -34,7 +34,7 @@ class TaskPage extends Component {
       }
     });
     this.setState({ tasks: newListTaskAfterEdit });
-    toast.success('Sửa công việc thành công');
+    toast.success('Sửa thành công');
   };
 
   // Hàm xóa công việc

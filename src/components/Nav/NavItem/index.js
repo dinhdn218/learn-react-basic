@@ -4,15 +4,22 @@ import './NavItem.scss';
 
 class NavItem extends Component {
   render() {
-    const { to, text, onClick, initActive, index, path } = this.props;
-    console.log(path);
+    const { path, label, onClick, pathCurrent } = this.props;
     return (
       <Link
-        onClick={onClick || function () {}}
-        className={`nav-item ${initActive === index ? 'active' : ''}`}
-        to={to}
+        onClick={(e) => onClick(e) || function () {}}
+        className={`nav-item ${
+          pathCurrent === path ||
+          pathCurrent.slice(
+            0,
+            pathCurrent.indexOf('/', pathCurrent.indexOf('/') + 1)
+          ) === path
+            ? 'active'
+            : ''
+        }`}
+        to={path}
       >
-        {text}
+        {label}
       </Link>
     );
   }
