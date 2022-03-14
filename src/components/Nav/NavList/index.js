@@ -6,8 +6,8 @@ export const navList = [
     path: '/user',
   },
   {
-    label: 'About',
-    path: '/about',
+    label: 'Course',
+    path: '/course',
   },
   {
     label: 'Contact',

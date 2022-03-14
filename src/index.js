@@ -9,11 +9,15 @@ import rootReducer from './store/reducers/rootReducer';
 import './styles/global.scss';
 import './styles/reset.scss';
 
+const reduxStore = createStore(rootReducer);
+
 ReactDOM.render(
   <React.StrictMode>
-    <Router>
-      <App />
-    </Router>
+    <Provider>
+      <Router store={reduxStore}>
+        <App />
+      </Router>
+    </Provider>
   </React.StrictMode>,
   document.getElementById('root')
 );
