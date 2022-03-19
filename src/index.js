@@ -13,8 +13,8 @@ const reduxStore = createStore(rootReducer);
 
 ReactDOM.render(
   <React.StrictMode>
-    <Provider>
-      <Router store={reduxStore}>
+    <Provider store={reduxStore}>
+      <Router>
         <App />
       </Router>
     </Provider>
